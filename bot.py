@@ -4,24 +4,26 @@ import os
 from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 
-from handlers import start, form  # импортируем хэндлеры
+from handlers import start, form, about, pricing  # importing handlers
 
-# Загружаем токен
+# Loading token
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 
-# Логирование
+# Logging
 logging.basicConfig(level=logging.INFO)
 
-# Создаём бота и диспетчер
+# Bot and Dispatcher
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-# Регистрируем хэндлеры
+# Handlers registration
 start.register_handlers(dp)
 form.register_handlers(dp)
+about.register_handlers(dp)
+pricing.register_handlers(dp)
 
-# Запуск
+# Run long-polling
 async def main():
     await dp.start_polling(bot)
 

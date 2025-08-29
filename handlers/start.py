@@ -13,6 +13,7 @@ def register_handlers(dp: Dispatcher):
             [types.KeyboardButton(text="Обо мне и услугах")],
             [types.KeyboardButton(text="Записаться на консультацию")],
             [types.KeyboardButton(text="Материалы и чеклисты")],
+            [types.KeyboardButton(text="Прайс-лист")],
         ]
         markup = types.ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
         await message.answer("Выберите раздел:", reply_markup=markup)
